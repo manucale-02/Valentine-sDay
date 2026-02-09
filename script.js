@@ -5,16 +5,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainContent = document.querySelector('.main-content');
 
     const moveButton = () => {
-        const bodyRect = document.body.getBoundingClientRect();
         const buttonRect = noBtn.getBoundingClientRect();
-
-        const maxX = bodyRect.width - buttonRect.width;
-        const maxY = bodyRect.height - buttonRect.height;
+        
+        // Usa window.innerWidth e window.innerHeight per ottenere le dimensioni della viewport visibile
+        const maxX = window.innerWidth - buttonRect.width;
+        const maxY = window.innerHeight - buttonRect.height;
 
         let newX = Math.random() * maxX;
         let newY = Math.random() * maxY;
 
-        noBtn.style.position = 'fixed'; // Usa fixed per muoversi su tutta la pagina
+        noBtn.style.position = 'fixed';
         noBtn.style.left = `${newX}px`;
         noBtn.style.top = `${newY}px`;
     };
